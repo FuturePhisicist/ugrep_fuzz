@@ -12,6 +12,9 @@ noinst_PROGRAMS = fuzz_ugrep
 # Source files for the fuzz target
 fuzz_ugrep_SOURCES = fuzz_ugrep.cpp target.cc
 
+# FIX
+fuzz_ugrep_LDFLAGS = $(PTHREAD_CFLAGS) $(LDFLAGS)
+
 # Link statically to the core ugrep and reflex libs
 fuzz_ugrep_LDADD = \
   $(top_builddir)/src/libugrep.a \
