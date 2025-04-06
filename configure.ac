@@ -521,7 +521,16 @@ AC_SUBST(EXTRA_CFLAGS)
 # Allow the manpage to be accessed as either ug or ugrep
 AC_CONFIG_LINKS([man/ug.1:man/ugrep.1])
 
-AC_CONFIG_FILES([Makefile lib/Makefile src/Makefile lzma/C/Makefile])
+# AC_CONFIG_FILES([Makefile lib/Makefile src/Makefile lzma/C/Makefile])
+###### REPLACED TO FUZZ
+AC_CONFIG_FILES([
+  Makefile
+  lib/Makefile
+  src/Makefile
+  lzma/C/Makefile
+  src/fuzz/Makefile
+])
+
 
 AC_OUTPUT
 
@@ -530,11 +539,11 @@ AC_OUTPUT
 ### ADDED TO FUZZ
 #################
 
-AC_CONFIG_FILES([
-  Makefile
-  lib/Makefile
-  src/Makefile
-  lzma/C/Makefile
-])
-AC_OUTPUT
+# AC_CONFIG_FILES([
+#  Makefile
+#  lib/Makefile
+#  src/Makefile
+#  lzma/C/Makefile
+# ])
+# AC_OUTPUT
 
