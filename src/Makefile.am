@@ -78,14 +78,14 @@ noinst_LIBRARIES = libugrep.a
 # Reuse ugrep_CPPFLAGS and ugrep_SOURCES, replacing ugrep.cpp with fuzz_ugrep.cpp
 libugrep_a_CPPFLAGS = $(ugrep_CPPFLAGS)
 
-libugrep_a_SOURCES = $(filter-out ugrep.cpp, $(ugrep_SOURCES)) \
+libugrep_a_SOURCES = $(filter %.cpp, $(ugrep_SOURCES)) \
                      fuzz/fuzz_ugrep.cpp
 
 # -----------------------------------------------------------------------------
 # Fuzz target executable (fuzz_ugrep)
 # -----------------------------------------------------------------------------
 
-bin_PROGRAMS += fuzz_ugrep
+check_PROGRAMS += fuzz_ugrep
 
 fuzz_ugrep_SOURCES = fuzz/target.cc
 fuzz_ugrep_CPPFLAGS = $(ugrep_CPPFLAGS)
