@@ -85,7 +85,7 @@ libugrep_a_SOURCES = $(filter %.cpp, $(ugrep_SOURCES)) \
 # Fuzz target executable (fuzz_ugrep)
 # -----------------------------------------------------------------------------
 
-check_PROGRAMS += fuzz_ugrep
+check_PROGRAMS = fuzz_ugrep
 
 fuzz_ugrep_SOURCES = fuzz/target.cc
 fuzz_ugrep_CPPFLAGS = $(ugrep_CPPFLAGS)
