@@ -68,3 +68,27 @@ ugrep_indexer_SOURCES  = \
 	zthread.hpp
 ugrep_indexer_LDADD = \
 	$(PTHREAD_LIBS)
+
+# -----------------------------------------------------------------------------
+# Static library for fuzzing (libugrep.a)
+# -----------------------------------------------------------------------------
+
+noinst_LIBRARIES += libugrep.a
+
+# Reuse ugrep_CPPFLAGS and ugrep_SOURCES, replacing ugrep.cpp with fuzz_ugrep.cpp
+libugrep_a_CPPFLAGS = $(ugrep_CPPFLAGS)
+
+libugrep_a_SOURCES = $(filter-out ugrep.cpp, $(ugrep_SOURCES)) \
+                     fuzz/fuzz_ugrep.cpp
+
+# -----------------------------------------------------------------------------
+# Fuzz target executable (fuzz_ugrep)
+# -----------------------------------------------------------------------------
+
+bin_PROGRAMS += fuzz_ugrep
+
+fuzz_ugrep_SOURCES = fuzz/target.cc
+fuzz_ugrep_CPPFLAGS = $(ugrep_CPPFLAGS)
+fuzz_ugrep_LDADD = libugrep.a ../lib/libreflex.a $(PTHREAD_LIBS)
+fuzz_ugrep_DEPENDENCIES = libugrep.a ../lib/libreflex.a
+

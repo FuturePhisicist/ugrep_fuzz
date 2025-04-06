@@ -524,3 +524,17 @@ AC_CONFIG_LINKS([man/ug.1:man/ugrep.1])
 AC_CONFIG_FILES([Makefile lib/Makefile src/Makefile lzma/C/Makefile])
 
 AC_OUTPUT
+
+
+#################
+### ADDED TO FUZZ
+#################
+
+AC_CONFIG_FILES([
+  Makefile
+  lib/Makefile
+  src/Makefile
+  lzma/C/Makefile
+])
+AC_OUTPUT
+
