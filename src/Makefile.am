@@ -73,7 +73,7 @@ ugrep_indexer_LDADD = \
 # Static library for fuzzing (libugrep.a)
 # -----------------------------------------------------------------------------
 
-noinst_LIBRARIES += libugrep.a
+noinst_LIBRARIES = libugrep.a
 
 # Reuse ugrep_CPPFLAGS and ugrep_SOURCES, replacing ugrep.cpp with fuzz_ugrep.cpp
 libugrep_a_CPPFLAGS = $(ugrep_CPPFLAGS)
